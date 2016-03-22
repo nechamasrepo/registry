@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default text-uppercase pueple">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to 'LogoHere', root_path, class: 'navbar-brand' %>
+      <% if current_user && current_user.unseen_fulfillments.count != 0 %>
+          <a href="<%=fulfillments_path%>" data-html="true" data-placement="bottom" data-toggle="popover" data-content="Notification 1<br/>Notification 2" data-original-title="Notifications">
+              <span class="badge badge-success"><%=current_user.unseen_fulfillments.count%></span>
+            </a>
+       <% end %>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <%= render partial: 'layouts/nav_links' %>  
+       </ul>
+        <%# if current_page?('/') %>
+          <%= render partial: 'public/search' %>      
+        <%# end %>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-7">
+  <div class="form-group">
+    <%= i.label :name, "Item Name" %>    
+    <%= i.text_field :name, class: "form-control" %> 
+  </div>
+  <div class ="row">
+    <div class="form-group col-md-6 left-input">
+      <%= i.label :needed, "Quantity" %>
+      <%= i.number_field :needed, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-6 right-input">
+      <%= i.label :price %>
+      <div class="input-group">
+        <div class="input-group-addon">$</div>
+        <%= i.number_field :price, :step => 0.01, class: "form-control" %>
+      </div>
+    </div>
+
+  </div>
+  <div class="form-group">
+    <%= i.label :notes, "Optional Note"%>
+    <%= i.text_field :notes, class: "form-control", placeholder: "Do you need a specific size or color?" %>
+  </div>
+  <div class="form-group">
+    <%= i.label :link, "Website where your guests can purchase this item" %>
+<!--     &nbsp;<span id="addressInfo" class="glyphicon glyphicon-info-sign
+" data-toggle="tooltip" data-placement="right" title="The website where your guests can purchase this item."></span>
+    <br/> -->
+  <%= i.url_field :link, class: "form-control" %>
+</div>
+   <div class="form-group text-left">
+     <%= i.label :image_url, "Image Address" %>&nbsp;<span id="addressInfo" class="glyphicon glyphicon-info-sign
+" data-toggle="tooltip" data-placement="right" title="To select an image, right click on the image and select 'Copy image address'. Then, paste the link into the input box below."></span><br/>
+  <%= i.text_field :image_url, class: "form-control" %>
+</div>  
+  </div>
+<div class="col-md-5 text-center">
+     <img id = "image-view" src="<%=@item.image_url%>" class="gift-image" >
+</div>
+</div>

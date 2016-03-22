@@ -1,0 +1,240 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import url(https://fonts.googleapis.com/css?family=Questrial|Josefin+Sans:400,600);
+
+$brand-primary: #c80553;
+$navbar-default-link-color: #27012a;
+$border-radius-base: 0;
+$border-radius-small: 0;
+$border-radius-large: 0;
+$input-border-focus: grey;
+$navbar-height: 60px;
+$navbar-margin-bottom: 0;
+$font-family-sans-serif: 'Josefin Sans', sans-serif;
+$modal-header-border-color: white;
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+body {
+  font-weight: 600;
+}
+
+*:focus {
+  outline: 0 !important;
+}
+
+/* media="all" */
+.modal-header {
+    padding: 15px 15px 0 15px;
+}
+
+html.turbolinks-progress-bar::before {
+  background-color: $brand-primary !important;
+  height: 5px !important;
+/*   margin-bottom: 30px; */
+}
+
+.purple{
+  color: #27012a;
+}
+
+.text-large {
+  font-size: 125%;
+}
+
+.btn-full-width {
+  width: 100%
+}
+
+.btn-tall {
+  height: 50px;
+}
+
+.btn-submit {
+/*   padding: 8px 20px 8px 20px; */
+  width: 100%;
+}
+
+.btn-action {
+    font-size: 20px;
+    margin-bottom:30px;
+    padding: 10px 25px;
+}
+
+.alert {
+  margin-bottom: 0; 
+}
+  
+body.background-image {
+  background: url("http://images.freeimages.com/images/previews/2ba/sky-1401115.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.fulfillment-box {
+  border: solid;
+}
+
+.form-panel{
+ margin-top:30px; 
+}
+
+.vendor-header {
+  padding: 16px 0 6px 0;
+  font-size: 20px;
+}
+
+.vendor-logos a {
+  text-decoration: none;
+}
+
+.vendor-logos img {
+  height: 45px;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: inline-block; /* needed?  */
+}
+
+.text-initial {
+  text-transform: initial;
+}
+
+.color-gray {
+  color: $gray-light;
+}
+
+.color-primary {
+  color: $brand-primary;
+}
+
+.jumbotron#landing-page {
+/*   background-repeat: no-repeat; */
+  background: #000 url("https://googledrive.com/host/0B_wFGjJ6tO2teG13WGx6M1JyQzQ") center center;
+/*   width: 100%;
+  height: 100%; */
+  background-size: cover;
+  overflow: hidden;
+  padding-top: 55px;
+  padding-bottom: 55px;
+  padding-left: 110px;
+  margin-bottom:  0;
+}
+
+.text-main-landing {
+    font-size: 55px;
+    line-height: 92%;
+}
+
+h1 {
+    text-align: center;
+}
+
+@media (min-width: 992px){
+    .navbar li {
+        margin-left : 1.5em;
+        margin-right : 1.5em;
+    }
+}
+
+/* Grid Boxes for Registry Page */
+
+.item-box{
+/*   border: 1px solid #CCCCCC; */
+  box-shadow: 0px 0px 6px #CCCCCC;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.item-box h3 {
+  font-size: 1.2em;
+}
+
+.item-box h3 .item-name {
+  font-weight: bold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display: block;
+  width: 100%;
+}
+
+.gift-image {
+    height: 210px;
+    width: auto;  
+    margin: 25px 0;
+    max-width: 100%;
+    position: relative;
+}
+
+.fulfilled-caption { 
+   position: absolute; 
+   top: 0; 
+   z-index: 2;
+   color: white;
+/*    font-size: $font-size-large; */
+   letter-spacing: -1px;  
+/*    background: $brand-alert; */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px; 
+}
+.fulfillment-status {
+  margin-top: 10px;
+}
+
+.item-fulfilled {
+/*   opacity: 0.6; */
+}
+
+.item-fulfilled border{
+  opacity: 1;
+}
+
+@media (min-width: $screen-md-min) {
+  .mid-input {
+    padding-right: 7px !important;   
+    padding-left: 7px !important;
+  }
+
+  .left-input {
+    padding-right: 7px !important;   
+  }
+
+  .right-input {
+    padding-left: 7px !important;
+  }
+}
+
+
+/* form div[class="col-md-6"]{
+  padding-left: 10px !important; 
+}
+ */
+/* .col-item {
+  $grid-gutter-width: 50px; 
+}
+ */
+
+/* .item-fulfilled .gift-image{
+  opacity: 0.4;
+}
+  
+.item-fulfilled{
+  color: $gray-light;
+} */

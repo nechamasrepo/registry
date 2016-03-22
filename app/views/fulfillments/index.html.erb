@@ -1,0 +1,23 @@
+<h1>Gifts Purchased For You...</h1>
+<div class="container text-center">
+<% @fulfillments.each do |f| %>
+<% buyer = f.buyer_name #.split.map(&:capitalize).join(' ')  %>
+<h4><%= buyer %> bought you 
+  <% item = Item.find(f.item_id).name %>
+  <% if f.quantity > 1 %>
+    <%= quan_item = "#{f.quantity} #{item.pluralize}" %>
+  <% else %>
+    <%= quan_item = "1 #{item}" %>
+  <% end %>
+</h4>
+<!-- <p> <%#= "Message from #{buyer}: #{f.message}" %> </p> -->
+<!-- <span data-toggle="tooltip" data-placement= "top" title= "This item should be marked as 'Purchased'"> -->
+  <%= link_to "Dismiss Notification", fulfill_path(f), method: :patch, class: "btn btn-success" %>
+</span>
+<span data-toggle="tooltip" data-placement= "right" title= "Remove the 'Purchased' status from this item, so someone else can buy it for you.">
+  <%= link_to "Mark this as Spam ", spam_path(f), method: :patch, class: "btn btn-danger" %>
+</span>
+<br/>
+<br/>
+<% end %>
+</div> 

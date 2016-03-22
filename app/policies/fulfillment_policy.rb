@@ -1,0 +1,2 @@
+class FulfillmentPolicy < ApplicationPolicy
+end 

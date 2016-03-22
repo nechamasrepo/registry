@@ -1,0 +1,7 @@
+<%= form_for User.new, :html => {:class => 'nav navbar-form navbar-right'}, url: search_path, method: :get do |u| %>
+    <div class="form-group">      
+  <%= u.text_field :first_name, :placeholder => 'First Name', class: "form-control" %>
+  <%= u.text_field :last_name, :placeholder => 'Last Name', class: "form-control" %>
+      <%= u.submit 'Find Registry', class: "btn btn-primary" %>  
+    </div>
+<% end %>

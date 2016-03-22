@@ -1,0 +1,32 @@
+<h1>Find Registry</h1>
+<div class ="container">
+  <% if @results.empty? %>
+    <h3><%= "We're sorry, we could not find any exact matches for #{@query}" %></h3>
+  <% end %>
+<div class = "col-md-8 col-md-offset-2">
+  <table class="table table-hover">
+  <!--   <thead>
+      <tr>
+        <th>Registrant</th>
+        <th>Co-Registrant</th>
+        <th>Wedding Date</th>
+        <th>Registry</th>
+      </tr>
+    </thead> -->
+    <% @results.each do |user| %>
+    <tr class="search-results-row verical-align-center">
+      <td><%= "#{user.first_name} #{user.last_name} & #{user.other_first_name} #{user.other_last_name}"%>
+        <br/>
+        <span class="color-gray"><%= user.wedding_date.strftime("%m/%d/%Y") if user.wedding_date? %></span>
+      </td>
+      <td class = "text-right"><%= link_to "View Registry", user_registry_path(user.link_id), class: "btn btn-default" %></td>
+      <!--  old chart    -->
+      <!-- <td><%#= "#{user.first_name} #{user.last_name} "%></td>
+      <td><%#= "#{user.other_first_name} #{user.other_last_name} "%></td>
+      <td><%#= user.wedding_date%></td>
+      <td><%#= link_to "Our Registry", user_registry_path(user.link_id) %></td> -->
+    </tr>
+    <% end %>
+  </table>
+</div>
+</div>

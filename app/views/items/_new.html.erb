@@ -1,0 +1,17 @@
+<div class="modal fade" id="newItemModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <%= form_for @item do |i| %>
+        <div class = "modal-body">          
+            <button type="button" class="close form-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <%= render partial: 'form', locals: {i: i} %>
+          <div class="row">
+            <div class="col-md-7">
+          <%= i.submit "Add To My Registry", class: 'btn btn-submit btn-primary text-uppercase'%>
+            </div>
+          </div>
+        </div>
+      <% end %>  
+    </div> 
+  </div>
+</div>         

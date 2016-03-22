@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <h1><%= "#{@user.first_name} #{@user.last_name} & #{@user.other_first_name} #{@user.other_last_name}" %></h1>
+      <p class="text-center"><%= @user.wedding_date.to_formatted_s(:long) %></p>
+      <% if current_user.present? && current_user == @user%>
+      <% personal_link = "#{request.host_with_port}/#{@user.link_id.upcase}" %>
+      <div class="text-center"> Your Link To Share: <%= personal_link %></div>
+      <% end %>
+      <div class="row">
+       <div class="col-md-8 col-md-offset-2">
+        <%= render partial: 'scrape_form' %>  
+      </div>
+    </div>
+  </div>
+<div class="row">
+  <div class="col-md-12 text-right">
+    <div class="form-inline text-left">
+      <div class="form-group">
+        <label>&nbsp;&nbsp;&nbsp;Sort by:</label>
+        <select id="sort-by" class="form-control">
+          <option value="">Select...</option>
+          <option value="price_high" <% if params[:sort_by] == 'price_high'%>selected<% end %>>Price: High To Low</option>
+          <option value="price_low" <% if params[:sort_by] == 'price_low'%>selected<% end %>>Price: Low To High</option>
+          <option value="vendor" <% if params[:sort_by] == 'vendor'%>selected<% end %>>Vendor</option>
+        </select>
+      </div>
+    </div>
+    <br/>
+    </div>
+    </div>
+<% @items.each do |i| %>
+  <div class="col-sm-6 col-md-4">
+    <% if i.needed>i.fulfilled %>
+      <div class="item-box">
+    <% else %>
+      <div class="item-box">
+        <div class="fulfilled-caption"><span class="glyphicon glyphicon-ok
+          "></span>&nbsp;&nbsp;Purchased</div>
+          <div class="item-fulfilled">
+    <% end %>
+            <%= link_to image_tag(i.image_url, class:'gift-image'), i.affiliate_link, target: '_blank' %>
+      <h3 class="text-uppercase">
+        <span class="item-name"><%= i.name %></span>
+        <%= i.store_name %>
+      </h3>
+      <p ><%= number_to_currency(i.price)%></p>
+      <% if current_user == i.user %>
+        <%= render partial: 'user_view.html.erb', locals: {i: i} %>
+        <% who = "You" %>
+      <% else %>
+        <%= render partial: 'public_view.html.erb', locals: {i: i} %>         
+        <% who = "They" %>
+      <% end %>
+      <p class="color-gray fulfillment-status"><%= "#{who} want: #{i.needed}" %> &bullet; <%= "Number purchased: #{i.fulfilled}" %></p>
+    </div>
+  </div>
+  <% if i.needed<=i.fulfilled %>
+    </div>
+  <% end %>
+<% end %>
+</div>
+<%= render partial: 'fulfillments/new.html.erb' %>
+<%= render partial: 'items/new.html.erb' %>

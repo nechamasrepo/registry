@@ -1,0 +1,35 @@
+<div class="modal fade" id="newFulfillmentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+  <div class="modal-content">
+      <div class = "modal-body">
+        <div class="container">
+          <button type="button" class="close form-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4>1. Buy this item from <a href="#"> <%= Item.find(:item_id) %><span class="label label-default"></span> </a></h4>
+          <p>Ship To: <%= "#{@user.street} #{@user.city}, #{@user.state} #{@user.zip}" %></p>
+          <h4>2. Submit this form to update their registry:</h4>
+      <%= form_for @fulfillment, url: fulfillments_create_path do |f|%>
+        <div class="form-group">
+          <%= f.label :buyer_name, 'Your Name' %>
+          <%= f.text_field :buyer_name %>
+        </div>
+        <div class="form-group">
+          <%= f.label :buyer_email, 'Your Email' %>
+          <%= f.email_field :buyer_email %>
+        </div>
+        <div class="form-group">
+        <%= f.label :quantity, "How many of this gift did you buy for #{@user.first_name} & #{@user.other_first_name}" %>
+          <%= f.number_field :quantity %>
+        </div>
+          <%#= f.label :message, "If you want, you can type a message to #{@user.first_name} & #{@user.other_first_name} here:" %>
+          <%#= f.text_area :message %>
+        <%= f.hidden_field :item_id %>    
+          <div class="text-center">
+        <button type="button" class="btn btn-default text-uppercase" data-dismiss="modal">Nevermind</button>
+        <%= f.submit "I bought this for #{@user.first_name} & #{@user.other_first_name} ", class: 'btn btn-primary text-uppercase'%>
+          </div>
+      <% end %>  
+        </div> 
+      </div>      
+  </div>
+  </div>
+</div>

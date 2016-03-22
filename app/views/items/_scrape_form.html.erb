@@ -1,0 +1,13 @@
+<% if current_user %>
+<!--   <h4>Your personal registry link to share: <%#= link_to request.original_url, request.original_url %></h4> -->
+  <form id = "scrape-form">
+    <div class="input-group">
+<!--       <span class="input-group-addon" id="basic-addon1">http://</span> -->
+      <input type="text" name="url" class="form-control" placeholder="Paste Link Here (Example: http://www.amazon.com/Home-Basics-Serving-Bamboo-11-75/dp/B004LF8TSA/ref=sr_1_3?s=home-garden&ie=UTF8&qid=1453828258&sr=1-3&keywords=serving+tray)">
+      <span class="input-group-btn">
+        <button class="btn btn-primary text-uppercase" data-loading-text="Loading...">Add Item To Registry</button>
+      </span>
+    </div>
+    <p class="help-block text-right">Processing may take 5-10 seconds</p>
+  </form>
+  <% end %>

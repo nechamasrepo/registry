@@ -1,0 +1,13 @@
+// Place all the styles related to the public controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.table > tbody > tr.verical-align-center td{
+   vertical-align: middle; 
+}
+
+.table > tbody > tr.search-results-row td{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  cursor: pointer;
+}

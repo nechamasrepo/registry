@@ -1,0 +1,46 @@
+<div class="jumbotron" id ="landing-page">
+  <div class="container">
+<!--     <div class="row">
+    <div class = "col-md-11 col-md-offset-1">          -->
+    <h2 class="text-main-landing purple">Register for <br> <b>any</b> gift <br>from <b>any</b> store.</h2>
+    <button data-toggle="modal" data-target="#signup-model" class="btn btn-lg btn-primary btn-action text-uppercase">Start your registry</button>
+  </div>
+<!--   </div>
+</div> -->
+</div>
+<h4 class="text-uppercase text-center color-primary vendor-header"><b>Add gifts from any store in the world including:</b></h4>
+
+<!-- Vendor Logos: -->
+<% vendor_logos_links = [ 
+["Panasonic", "https://googledrive.com/host/0B_wFGjJ6tO2tR2dHR0tTR3pUZU0", "http://www.shop.panasonic.com/"],
+["Macys", "https://googledrive.com/host/0B_wFGjJ6tO2tVXZTZXB2NTRKNEU", "http://www.macys.com/"],
+  ["Target", "https://googledrive.com/host/0B_wFGjJ6tO2tOWg1UG1iZDlfaWc", "http://www.target.com/"],
+["Amazon", "https://googledrive.com/host/0B_wFGjJ6tO2tRk8tb2RJWXA5Z0E", "http://www.amazon.com/"],
+["BestBuy", "https://googledrive.com/host/0B_wFGjJ6tO2tV0tKSFBzMENydVE", "http://www.bestbuy.com/"],
+["Feldheim", "https://googledrive.com/host/0B_wFGjJ6tO2tRG12dkZCNFROenc", "http://www.feldheim.com/?acc=9778d5d219c5080b9a6a17bef029331c.com/affiliates/banner/list/"],
+["Walmart", "https://googledrive.com/host/0B_wFGjJ6tO2tUXN4X09WQ0xpSm8", "https://www.walmart.com/"],
+# ["CoverYourHair", "https://googledrive.com/host/0B_wFGjJ6tO2tVjRHZ3VtS0QwY1E", "#"],
+["Artscroll", "https://googledrive.com/host/0B_wFGjJ6tO2tNnVndnloOHVra1E", "http://artscroll.com/"],
+["CrateAndBarrel", "https://googledrive.com/host/0B_wFGjJ6tO2tTFNvU25TaXpKNFU", "http://www.crateandbarrel.com/"],
+["Bloomingdales", "https://googledrive.com/host/0B_wFGjJ6tO2tLVUzSFBtd3NyODQ", "http://www1.bloomingdales.com/"],
+["Sears", "https://googledrive.com/host/0B_wFGjJ6tO2tdkFNWkxibHFHaWc", "http://www.sears.com/"],
+["Hazorfim", "https://googledrive.com/host/0B_wFGjJ6tO2tc0JRT0dvRnFCQXc", "https://hazorfim.com"],
+["PotteryBarn", "https://googledrive.com/host/0B_wFGjJ6tO2tZVduc1AwWThQYXM", "http://www.potterybarn.com/"]
+]%>
+
+<% total_vendors = vendor_logos_links.count %>
+<!--  total_vendors/2.ceil is the number that should be on the top row -->
+<% break_index = (total_vendors/2).ceil %>
+<div class = "container text-center vendor-logos">
+  <% vendor_logos_links.each do |vendor| %>
+  <%= link_to image_tag(vendor[1] ,alt: vendor[0]), vendor[2], :target => "_blank" %>
+    <% if vendor == vendor_logos_links[break_index] %>
+      <br/>
+    <% end %>
+  <% end %>
+</div>
+
+<br/>
+<!-- <div class="text-center"> All Rights Reserved - Register For Anything </div> -->
+
+<%= render partial: 'new_first_modal' %>

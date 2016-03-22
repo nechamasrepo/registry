@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html class="turbolinks-progress-bar">
+<head>
+  <title>Wedding Registry</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+  <body onunload="">
+  <%= render partial: 'layouts/nav_bar.html.erb' %> 
+  <%= render partial: 'layouts/alerts.html.erb' %> 
+      <%= yield %>
+  </body>
+</html>
